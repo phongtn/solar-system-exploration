@@ -148,8 +148,17 @@ export default function SolarSystem({
             ],
           );
           return (
-            <mesh key={i} position={[x, y, z]}>
-              <sphereGeometry args={[0.08 + Math.random() * 0.08, 6, 6]} />
+            <mesh 
+              key={i} 
+              position={[x, y, z]}
+              rotation={[Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI]}
+              scale={[
+                0.08 + Math.random() * 0.08,
+                0.06 + Math.random() * 0.08,
+                0.07 + Math.random() * 0.08
+              ]}
+            >
+              <icosahedronGeometry args={[1, Math.floor(Math.random() * 2)]} />
               <meshStandardMaterial
                 map={randomTexture}
                 metalness={0.5}
