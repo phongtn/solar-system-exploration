@@ -3,6 +3,15 @@ import { useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import { planets } from '@/lib/planets';
+import type { Planet } from '@/lib/types';
+
+interface PlanetProps {
+  planet: Planet;
+  distance: number;
+  isSelected: boolean;
+  onSelect: (planet: Planet) => void;
+  autoRotate: boolean;
+}
 
 function Planet({ 
   planet, 
@@ -10,12 +19,12 @@ function Planet({
   isSelected, 
   onSelect,
   autoRotate 
-}) {
-  const meshRef = useRef();
-  const orbitRef = useRef();
+}: PlanetProps) {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const orbitRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
-    if (autoRotate) {
+  useFrame(() => {
+    if (autoRotate && meshRef.current && orbitRef.current) {
       meshRef.current.rotation.y += planet.rotationSpeed;
       orbitRef.current.rotation.y += planet.orbitSpeed;
     }
@@ -42,17 +51,24 @@ function Planet({
   );
 }
 
+interface SolarSystemProps {
+  selectedPlanet: Planet;
+  onSelectPlanet: (planet: Planet) => void;
+  autoRotate: boolean;
+}
+
 export default function SolarSystem({ 
   selectedPlanet, 
   onSelectPlanet,
   autoRotate 
-}) {
+}: SolarSystemProps) {
   return (
     <>
       <ambientLight intensity={0.1} />
       <pointLight position={[0, 0, 0]} intensity={2} />
       <Stars radius={100} depth={50} count={5000} factor={4} />
-      
+
+      {/* Sun */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
@@ -61,7 +77,7 @@ export default function SolarSystem({
         />
       </mesh>
 
-      {planets.map((planet, index) => (
+      {planets.map((planet) => (
         <Planet
           key={planet.name}
           planet={planet}

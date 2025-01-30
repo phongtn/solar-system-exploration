@@ -1,9 +1,14 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
+import type { Planet } from '@/lib/types';
 import '../styles/PlanetInfo.css';
 
-export default function PlanetInfo({ planet }) {
+interface PlanetInfoProps {
+  planet: Planet;
+}
+
+export default function PlanetInfo({ planet }: PlanetInfoProps) {
   return (
     <ScrollArea className="h-full p-6 text-white">
       <CardHeader className="p-0 mb-6">

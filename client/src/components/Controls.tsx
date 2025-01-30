@@ -1,7 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Play, Pause } from 'lucide-react';
 
-export default function Controls({ autoRotate, onToggleAutoRotate }) {
+interface ControlsProps {
+  autoRotate: boolean;
+  onToggleAutoRotate: () => void;
+}
+
+export default function Controls({ autoRotate, onToggleAutoRotate }: ControlsProps) {
   return (
     <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
       <Button
