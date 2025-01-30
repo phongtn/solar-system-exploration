@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
+import { DialogTitle } from '@/components/ui/dialog';
 import type { Planet } from '@/lib/types';
 import '../styles/PlanetInfo.css';
 
