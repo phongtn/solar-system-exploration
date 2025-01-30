@@ -100,10 +100,10 @@ export default function SolarSystem({
       <ambientLight intensity={0.3} />
       <pointLight 
         position={[0, 0, 0]} 
-        intensity={0.8} 
+        intensity={2} 
         color="#FDB813" 
         distance={100}
-        decay={1.5}
+        decay={1}
       />
 
       {/* Stars background */}
