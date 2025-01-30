@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import SolarSystem from "@/components/SolarSystem";
@@ -18,11 +19,13 @@ export default function Home() {
         <Controls autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
       </div>
       
-      <SolarSystem
-        selectedPlanet={selectedPlanet}
-        onSelectPlanet={setSelectedPlanet}
-        autoRotate={autoRotate}
-      />
+      <Canvas camera={{ position: [0, 20, 25], fov: 60 }}>
+        <SolarSystem
+          selectedPlanet={selectedPlanet}
+          onSelectPlanet={setSelectedPlanet}
+          autoRotate={autoRotate}
+        />
+      </Canvas>
 
       <Drawer>
         <DrawerTrigger asChild>
