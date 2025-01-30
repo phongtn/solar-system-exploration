@@ -119,7 +119,7 @@ export default function SolarSystem({
       />
 
       {/* Stars background */}
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} />
+      <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} />
 
       {/* Sun */}
       <mesh position={[0, 0, 0]}>
