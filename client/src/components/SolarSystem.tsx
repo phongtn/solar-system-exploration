@@ -130,13 +130,21 @@ export default function SolarSystem({
           const x = Math.cos(angle) * radius;
           const z = Math.sin(angle) * radius;
           const y = (Math.random() - 0.5) * 2;
+          const asteroidTextures = [
+            "/textures/2k_asteroid_1.jpg",
+            "/textures/2k_asteroid_2.jpg",
+            "/textures/2k_asteroid_3.jpg",
+            "/textures/2k_asteroid_4.jpg"
+          ];
+          const randomTexture = useLoader(
+            THREE.TextureLoader,
+            asteroidTextures[Math.floor(Math.random() * asteroidTextures.length)]
+          );
           return (
             <mesh key={i} position={[x, y, z]}>
               <sphereGeometry args={[0.08 + Math.random() * 0.08, 6, 6]} />
               <meshStandardMaterial 
-                color="#C0B3A1"
-                emissive="#A89B89"
-                emissiveIntensity={0.4}
+                map={randomTexture}
                 metalness={0.5}
                 roughness={0.2}
               />
@@ -161,7 +169,7 @@ export default function SolarSystem({
         enablePan={true}
         enableRotate={true}
         autoRotate={autoRotate}
-        autoRotateSpeed={0.5}
+        autoRotateSpeed={0.2}
         maxDistance={100}
         minDistance={5}
       />
