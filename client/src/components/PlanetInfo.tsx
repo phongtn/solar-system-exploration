@@ -12,17 +12,17 @@ export default function PlanetInfo({ planet }: PlanetInfoProps) {
   return (
     <ScrollArea className="h-full p-4 md:p-6 text-white">
       <CardHeader className="p-0 mb-4 md:mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+        <h1 className="text-2xl md:text-3xl font-bold text-white">
           {planet.name}
         </h1>
       </CardHeader>
 
       <CardContent className="p-0 space-y-4 md:space-y-6">
         <div className="space-y-2">
-          <h2 className="text-lg md:text-xl font-semibold text-purple-400">Quick Facts</h2>
+          <h2 className="text-lg md:text-xl font-semibold text-white">Quick Facts</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p className="text-sm md:text-base text-gray-400">Distance from Sun</p>
+              <p className="text-sm md:text-base text-white">Distance from Sun</p>
               <p className="text-base md:text-lg">{planet.distanceFromSunKm} km</p>
             </div>
             <div>
