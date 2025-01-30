@@ -54,6 +54,8 @@ function Planet({
           map={texture}
           emissive={isSelected ? 'white' : 'black'}
           emissiveIntensity={isSelected ? 0.2 : 0}
+          metalness={0.2}
+          roughness={0.8}
         />
       </mesh>
       {moons.map((moon, index) => (
@@ -83,13 +85,13 @@ export default function SolarSystem({
 
   return (
     <>
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.3} />
       <pointLight 
         position={[0, 0, 0]} 
-        intensity={1.5} 
+        intensity={0.8} 
         color="#FDB813" 
         distance={100}
-        decay={2}
+        decay={1.5}
       />
 
       {/* Stars background */}
@@ -98,9 +100,11 @@ export default function SolarSystem({
       {/* Sun */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
-        <meshBasicMaterial
+        <meshStandardMaterial
           map={sunTexture}
-          color="#FDB813"
+          emissive="#FDB813"
+          emissiveIntensity={0.6}
+          color="#FFFFFF"
         />
       </mesh>
 
