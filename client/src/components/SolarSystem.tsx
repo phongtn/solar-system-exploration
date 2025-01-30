@@ -85,7 +85,13 @@ export default function SolarSystem({
   return (
     <>
       <ambientLight intensity={0.1} />
-      <pointLight position={[0, 0, 0]} intensity={2} color="#FDB813" />
+      <pointLight 
+        position={[0, 0, 0]} 
+        intensity={1.5} 
+        color="#FDB813" 
+        distance={100}
+        decay={2}
+      />
 
       {/* Stars background */}
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} />
@@ -93,11 +99,9 @@ export default function SolarSystem({
       {/* Sun */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
-        <meshStandardMaterial
+        <meshBasicMaterial
           map={sunTexture}
-          emissive="#FDB813"
-          emissiveIntensity={1}
-          emissiveMap={sunTexture}
+          color="#FDB813"
         />
       </mesh>
 
