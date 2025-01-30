@@ -14,7 +14,7 @@ export default function Home() {
     <div className="w-full h-screen flex">
       <div className="flex-grow relative">
         <Canvas
-          camera={{ position: [0, 20, 50], fov: 60 }}
+          camera={{ position: [0, 20, 25], fov: 60 }}
           style={{ background: 'black' }}
         >
           <Suspense fallback={null}>
@@ -30,7 +30,7 @@ export default function Home() {
           onToggleAutoRotate={() => setAutoRotate(!autoRotate)}
         />
       </div>
-      
+
       <Card className="w-96 h-full overflow-auto bg-black/80 border-gray-800">
         <PlanetInfo planet={selectedPlanet} />
       </Card>

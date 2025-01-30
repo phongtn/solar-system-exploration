@@ -47,6 +47,10 @@ function Planet({
           emissiveIntensity={isSelected ? 0.2 : 0}
         />
       </mesh>
+      <line>
+        <circleGeometry args={[distance, 64]} />
+        <lineBasicMaterial color="gray" opacity={0.2} transparent />
+      </line>
     </group>
   );
 }
@@ -64,15 +68,16 @@ export default function SolarSystem({
 }: SolarSystemProps) {
   return (
     <>
-      <ambientLight intensity={0.1} />
-      <pointLight position={[0, 0, 0]} intensity={2} />
-      <Stars radius={100} depth={50} count={5000} factor={4} />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[0, 0, 0]} intensity={2} color="white" />
+      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} />
 
       {/* Sun */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
-        <meshStandardMaterial
-          emissive="yellow"
+        <meshBasicMaterial
+          color="yellow"
+          emissive="orange"
           emissiveIntensity={1}
         />
       </mesh>
@@ -94,6 +99,8 @@ export default function SolarSystem({
         enableRotate={true}
         autoRotate={autoRotate}
         autoRotateSpeed={0.5}
+        maxDistance={100}
+        minDistance={5}
       />
     </>
   );
