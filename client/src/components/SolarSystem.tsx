@@ -65,8 +65,12 @@ function Planet({
           <meshStandardMaterial
             map={ringTexture}
             transparent={true}
-            opacity={0.8}
+            opacity={1}
             side={THREE.DoubleSide}
+            emissive="#FFFFFF"
+            emissiveIntensity={0.1}
+            metalness={0.8}
+            roughness={0.2}
           />
         </mesh>
       )}
@@ -100,7 +104,7 @@ export default function SolarSystem({
       <ambientLight intensity={0.3} />
       <pointLight 
         position={[0, 0, 0]} 
-        intensity={2} 
+        intensity={3} 
         color="#FDB813" 
         distance={100}
         decay={1}
@@ -129,7 +133,13 @@ export default function SolarSystem({
           return (
             <mesh key={i} position={[x, y, z]}>
               <sphereGeometry args={[0.05 + Math.random() * 0.05, 4, 4]} />
-              <meshStandardMaterial color="#666666" />
+              <meshStandardMaterial 
+                color="#8B7355"
+                emissive="#4A3C2C"
+                emissiveIntensity={0.2}
+                metalness={0.7}
+                roughness={0.3}
+              />
             </mesh>
           );
         })}
