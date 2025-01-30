@@ -112,7 +112,7 @@ export default function SolarSystem({
       <ambientLight intensity={0.5} />
       <pointLight
         position={[0, 0, 0]}
-        intensity={20}
+        intensity={50}
         color="#FDB813"
         distance={100}
         decay={1}
@@ -148,14 +148,18 @@ export default function SolarSystem({
             ],
           );
           return (
-            <mesh 
-              key={i} 
+            <mesh
+              key={i}
               position={[x, y, z]}
-              rotation={[Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI]}
+              rotation={[
+                Math.random() * Math.PI,
+                Math.random() * Math.PI,
+                Math.random() * Math.PI,
+              ]}
               scale={[
                 0.08 + Math.random() * 0.08,
                 0.06 + Math.random() * 0.08,
-                0.07 + Math.random() * 0.08
+                0.07 + Math.random() * 0.08,
               ]}
             >
               <icosahedronGeometry args={[1, Math.floor(Math.random() * 2)]} />
