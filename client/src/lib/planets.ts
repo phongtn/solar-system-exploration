@@ -2,7 +2,7 @@ export const planets = [
   {
     name: "Mercury",
     size: 0.4,
-    distanceFromSun: 4,
+    distanceFromSun: 6,
     distanceFromSunKm: "57.9 million",
     orbitalPeriod: 88,
     diameter: 4879,
@@ -20,7 +20,7 @@ export const planets = [
   {
     name: "Venus",
     size: 0.9,
-    distanceFromSun: 7,
+    distanceFromSun: 11,
     distanceFromSunKm: "108.2 million",
     orbitalPeriod: 225,
     diameter: 12104,
@@ -38,7 +38,7 @@ export const planets = [
   {
     name: "Earth",
     size: 1,
-    distanceFromSun: 10,
+    distanceFromSun: 16,
     distanceFromSunKm: "149.6 million",
     orbitalPeriod: 365.25,
     diameter: 12742,
@@ -64,7 +64,7 @@ export const planets = [
   {
     name: "Mars",
     size: 0.5,
-    distanceFromSun: 15,
+    distanceFromSun: 22,
     distanceFromSunKm: "227.9 million",
     orbitalPeriod: 687,
     diameter: 6779,
@@ -82,7 +82,7 @@ export const planets = [
   {
     name: "Jupiter",
     size: 2.5,
-    distanceFromSun: 21,
+    distanceFromSun: 30,
     distanceFromSunKm: "778.5 million",
     orbitalPeriod: 4333,
     diameter: 139820,
@@ -100,7 +100,7 @@ export const planets = [
   {
     name: "Saturn",
     size: 2,
-    distanceFromSun: 26,
+    distanceFromSun: 38,
     distanceFromSunKm: "1.4 billion",
     orbitalPeriod: 10759,
     diameter: 116460,

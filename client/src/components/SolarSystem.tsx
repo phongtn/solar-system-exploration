@@ -23,6 +23,7 @@ function Planet({
   const meshRef = useRef<THREE.Mesh>(null);
   const orbitRef = useRef<THREE.Group>(null);
   const texture = useLoader(THREE.TextureLoader, planet.texture);
+  const ringTexture = planet.name === "Saturn" ? useLoader(THREE.TextureLoader, "/textures/2k_saturn_ring_alpha.png") : null;
   const moons = planet.moons || [];
 
   const isMobile = window.innerWidth < 768;
@@ -58,6 +59,17 @@ function Planet({
           roughness={0.8}
         />
       </mesh>
+      {planet.name === "Saturn" && (
+        <mesh rotation={[Math.PI / 2.5, 0, 0]} position={[distance, 0, 0]}>
+          <ringGeometry args={[3, 5, 64]} />
+          <meshStandardMaterial
+            map={ringTexture}
+            transparent={true}
+            opacity={0.8}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      )}
       {moons.map((moon, index) => (
         <group key={index} rotation={[0, (2 * Math.PI * index) / moons.length, 0]}>
           <mesh position={[distance + moon.distance, 0, 0]}>
