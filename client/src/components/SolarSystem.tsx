@@ -55,16 +55,8 @@ function Planet({
             <sphereGeometry args={[moon.size, 16, 16]} />
             <meshStandardMaterial map={useLoader(THREE.TextureLoader, moon.texture)} />
           </mesh>
-          <line>
-            <circleGeometry args={[distance + moon.distance, 64]} />
-            <lineBasicMaterial color="gray" opacity={0.1} transparent />
-          </line>
         </group>
       ))}
-      <line>
-        <circleGeometry args={[distance, 64]} />
-        <lineBasicMaterial color="gray" opacity={0.2} transparent />
-      </line>
     </group>
   );
 }
