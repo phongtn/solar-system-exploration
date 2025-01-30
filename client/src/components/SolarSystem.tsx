@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
-import * as THREE from 'three';
-import { planets } from '@/lib/planets';
-import type { Planet } from '@/lib/types';
+import { useRef } from "react";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import * as THREE from "three";
+import { planets } from "@/lib/planets";
+import type { Planet } from "@/lib/types";
 
 interface PlanetProps {
   planet: Planet;
@@ -13,21 +13,24 @@ interface PlanetProps {
   autoRotate: boolean;
 }
 
-function Planet({ 
-  planet, 
-  distance, 
-  isSelected, 
+function Planet({
+  planet,
+  distance,
+  isSelected,
   onSelect,
-  autoRotate 
+  autoRotate,
 }: PlanetProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const orbitRef = useRef<THREE.Group>(null);
   const texture = useLoader(THREE.TextureLoader, planet.texture);
-  const ringTexture = planet.name === "Saturn" ? useLoader(THREE.TextureLoader, "/textures/2k_saturn_ring_alpha.png") : null;
+  const ringTexture =
+    planet.name === "Saturn"
+      ? useLoader(THREE.TextureLoader, "/textures/2k_saturn_ring_alpha.png")
+      : null;
   const moons = planet.moons || [];
 
   const isMobile = window.innerWidth < 768;
-  
+
   useFrame(() => {
     if (autoRotate && meshRef.current && orbitRef.current) {
       meshRef.current.rotation.y += planet.rotationSpeed;
@@ -53,7 +56,7 @@ function Planet({
         <sphereGeometry args={[planet.size, 32, 32]} />
         <meshStandardMaterial
           map={texture}
-          emissive={isSelected ? 'white' : 'black'}
+          emissive={isSelected ? "white" : "black"}
           emissiveIntensity={isSelected ? 0.2 : 0}
           metalness={0.2}
           roughness={0.8}
@@ -75,10 +78,15 @@ function Planet({
         </mesh>
       )}
       {moons.map((moon, index) => (
-        <group key={index} rotation={[0, (2 * Math.PI * index) / moons.length, 0]}>
+        <group
+          key={index}
+          rotation={[0, (2 * Math.PI * index) / moons.length, 0]}
+        >
           <mesh position={[distance + moon.distance, 0, 0]}>
             <sphereGeometry args={[moon.size, 16, 16]} />
-            <meshStandardMaterial map={useLoader(THREE.TextureLoader, moon.texture)} />
+            <meshStandardMaterial
+              map={useLoader(THREE.TextureLoader, moon.texture)}
+            />
           </mesh>
         </group>
       ))}
@@ -92,20 +100,20 @@ interface SolarSystemProps {
   autoRotate: boolean;
 }
 
-export default function SolarSystem({ 
-  selectedPlanet, 
+export default function SolarSystem({
+  selectedPlanet,
   onSelectPlanet,
-  autoRotate 
+  autoRotate,
 }: SolarSystemProps) {
   const sunTexture = useLoader(THREE.TextureLoader, "/textures/2k_sun.jpg");
 
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <pointLight 
-        position={[0, 0, 0]} 
-        intensity={3} 
-        color="#FDB813" 
+      <ambientLight intensity={0.5} />
+      <pointLight
+        position={[0, 0, 0]}
+        intensity={20}
+        color="#FDB813"
         distance={100}
         decay={1}
       />
@@ -116,10 +124,7 @@ export default function SolarSystem({
       {/* Sun */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
-        <meshBasicMaterial
-          map={sunTexture}
-          color="#FDB813"
-        />
+        <meshBasicMaterial map={sunTexture} color="#FDB813" />
       </mesh>
 
       {/* Asteroid Belt */}
@@ -134,16 +139,18 @@ export default function SolarSystem({
             "/textures/2k_asteroid_1.jpg",
             "/textures/2k_asteroid_2.jpg",
             "/textures/2k_asteroid_3.jpg",
-            "/textures/2k_asteroid_4.jpg"
+            "/textures/2k_asteroid_4.jpg",
           ];
           const randomTexture = useLoader(
             THREE.TextureLoader,
-            asteroidTextures[Math.floor(Math.random() * asteroidTextures.length)]
+            asteroidTextures[
+              Math.floor(Math.random() * asteroidTextures.length)
+            ],
           );
           return (
             <mesh key={i} position={[x, y, z]}>
               <sphereGeometry args={[0.08 + Math.random() * 0.08, 6, 6]} />
-              <meshStandardMaterial 
+              <meshStandardMaterial
                 map={randomTexture}
                 metalness={0.5}
                 roughness={0.2}
@@ -164,7 +171,7 @@ export default function SolarSystem({
         />
       ))}
 
-      <OrbitControls 
+      <OrbitControls
         enableZoom={true}
         enablePan={true}
         enableRotate={true}
