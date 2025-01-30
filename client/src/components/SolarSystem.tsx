@@ -132,13 +132,13 @@ export default function SolarSystem({
           const y = (Math.random() - 0.5) * 2;
           return (
             <mesh key={i} position={[x, y, z]}>
-              <sphereGeometry args={[0.05 + Math.random() * 0.05, 4, 4]} />
+              <sphereGeometry args={[0.08 + Math.random() * 0.08, 6, 6]} />
               <meshStandardMaterial 
-                color="#8B7355"
-                emissive="#4A3C2C"
-                emissiveIntensity={0.2}
-                metalness={0.7}
-                roughness={0.3}
+                color="#C0B3A1"
+                emissive="#A89B89"
+                emissiveIntensity={0.4}
+                metalness={0.5}
+                roughness={0.2}
               />
             </mesh>
           );
