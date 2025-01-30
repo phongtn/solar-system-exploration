@@ -112,11 +112,9 @@ export default function SolarSystem({
       {/* Sun */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
-        <meshStandardMaterial
+        <meshBasicMaterial
           map={sunTexture}
-          emissive="#FDB813"
-          emissiveIntensity={0.6}
-          color="#FFFFFF"
+          color="#FDB813"
         />
       </mesh>
 
