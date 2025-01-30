@@ -10,12 +10,14 @@ interface PlanetInfoProps {
 
 export default function PlanetInfo({ planet }: PlanetInfoProps) {
   return (
-    <ScrollArea className="h-full p-6 text-white">
-      <CardHeader className="p-0 mb-4 md:mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-purple-400">
-          {planet.name}
-        </h1>
-      </CardHeader>
+    <>
+      <DialogTitle className="sr-only">Planet Information</DialogTitle>
+      <ScrollArea className="h-full p-6 text-white">
+        <CardHeader className="p-0 mb-4 md:mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-purple-400">
+            {planet.name}
+          </h1>
+        </CardHeader>
 
       <CardContent className="p-0 space-y-4 md:space-y-6">
         <div className="space-y-2">
@@ -61,5 +63,6 @@ export default function PlanetInfo({ planet }: PlanetInfoProps) {
         </div>
       </CardContent>
     </ScrollArea>
+    </>
   );
 }
