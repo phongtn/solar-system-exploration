@@ -51,6 +51,14 @@ export const planets = [
       "Earth is the only planet not named after a mythological god or goddess",
       "The Earth's core is as hot as the surface of the sun",
       "Our planet's atmosphere extends up to 10,000 kilometers into space"
+    ],
+    moons: [
+      {
+        name: "Moon",
+        size: 0.27, // Relative to Earth
+        distance: 2, // Scaled distance
+        texture: "/textures/2k_moon.jpg"
+      }
     ]
   },
   {

@@ -23,6 +23,7 @@ function Planet({
   const meshRef = useRef<THREE.Mesh>(null);
   const orbitRef = useRef<THREE.Group>(null);
   const texture = useLoader(THREE.TextureLoader, planet.texture);
+  const moons = planet.moons || [];
 
   useFrame(() => {
     if (autoRotate && meshRef.current && orbitRef.current) {
@@ -48,6 +49,18 @@ function Planet({
           emissiveIntensity={isSelected ? 0.2 : 0}
         />
       </mesh>
+      {moons.map((moon, index) => (
+        <group key={index} rotation={[0, (2 * Math.PI * index) / moons.length, 0]}>
+          <mesh position={[distance + moon.distance, 0, 0]}>
+            <sphereGeometry args={[moon.size, 16, 16]} />
+            <meshStandardMaterial map={useLoader(THREE.TextureLoader, moon.texture)} />
+          </mesh>
+          <line>
+            <circleGeometry args={[distance + moon.distance, 64]} />
+            <lineBasicMaterial color="gray" opacity={0.1} transparent />
+          </line>
+        </group>
+      ))}
       <line>
         <circleGeometry args={[distance, 64]} />
         <lineBasicMaterial color="gray" opacity={0.2} transparent />
@@ -71,8 +84,10 @@ export default function SolarSystem({
 
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <pointLight position={[0, 0, 0]} intensity={2} color="white" />
+      <ambientLight intensity={0.1} />
+      <pointLight position={[0, 0, 0]} intensity={2} color="#FDB813" />
+
+      {/* Stars background */}
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} />
 
       {/* Sun */}
@@ -80,12 +95,28 @@ export default function SolarSystem({
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
           map={sunTexture}
-          color="#FDB813"
           emissive="#FDB813"
-          emissiveIntensity={2}
-          toneMapped={false}
+          emissiveIntensity={1}
+          emissiveMap={sunTexture}
         />
       </mesh>
+
+      {/* Asteroid Belt */}
+      <group rotation={[Math.PI / 8, 0, 0]}>
+        {Array.from({ length: 200 }).map((_, i) => {
+          const angle = (i / 200) * Math.PI * 2;
+          const radius = 18 + Math.random() * 2; // Between Mars and Jupiter
+          const x = Math.cos(angle) * radius;
+          const z = Math.sin(angle) * radius;
+          const y = (Math.random() - 0.5) * 2;
+          return (
+            <mesh key={i} position={[x, y, z]}>
+              <sphereGeometry args={[0.05 + Math.random() * 0.05, 4, 4]} />
+              <meshStandardMaterial color="#666666" />
+            </mesh>
+          );
+        })}
+      </group>
 
       {planets.map((planet) => (
         <Planet

@@ -1,3 +1,10 @@
+export interface Moon {
+  name: string;
+  size: number;
+  distance: number;
+  texture: string;
+}
+
 export interface Planet {
   name: string;
   size: number;
@@ -11,4 +18,5 @@ export interface Planet {
   texture: string;
   description: string;
   funFacts: string[];
+  moons?: Moon[];
 }
