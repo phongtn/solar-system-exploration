@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import { planets } from '@/lib/planets';
@@ -22,6 +22,7 @@ function Planet({
 }: PlanetProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const orbitRef = useRef<THREE.Group>(null);
+  const texture = useLoader(THREE.TextureLoader, planet.texture);
 
   useFrame(() => {
     if (autoRotate && meshRef.current && orbitRef.current) {
@@ -42,7 +43,7 @@ function Planet({
       >
         <sphereGeometry args={[planet.size, 32, 32]} />
         <meshStandardMaterial
-          map={new THREE.TextureLoader().load(planet.texture)}
+          map={texture}
           emissive={isSelected ? 'white' : 'black'}
           emissiveIntensity={isSelected ? 0.2 : 0}
         />
@@ -66,6 +67,8 @@ export default function SolarSystem({
   onSelectPlanet,
   autoRotate 
 }: SolarSystemProps) {
+  const sunTexture = useLoader(THREE.TextureLoader, "/textures/2k_sun.jpg");
+
   return (
     <>
       <ambientLight intensity={0.3} />
@@ -76,9 +79,11 @@ export default function SolarSystem({
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
-          color="yellow"
-          emissive="yellow"
-          emissiveIntensity={1}
+          map={sunTexture}
+          color="#FDB813"
+          emissive="#FDB813"
+          emissiveIntensity={2}
+          toneMapped={false}
         />
       </mesh>
 

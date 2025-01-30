@@ -9,7 +9,7 @@ export const planets = [
     averageTemp: 167,
     rotationSpeed: 0.01,
     orbitSpeed: 0.04,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/mercury.4k.jpg",
+    texture: "/textures/2k_mercury.jpg",
     description: "Mercury is the smallest and innermost planet in the Solar System. Its orbit around the Sun takes only 88 Earth days, making it the fastest planet.",
     funFacts: [
       "Mercury has no moons and no substantial atmosphere",
@@ -27,7 +27,7 @@ export const planets = [
     averageTemp: 464,
     rotationSpeed: 0.008,
     orbitSpeed: 0.015,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/venus.4k.jpg",
+    texture: "/textures/2k_venus_surface.jpg",
     description: "Venus is the second planet from the Sun and is Earth's closest planetary neighbor. It's one of the four inner, terrestrial planets.",
     funFacts: [
       "Venus spins backwards compared to most other planets",
@@ -45,7 +45,7 @@ export const planets = [
     averageTemp: 15,
     rotationSpeed: 0.01,
     orbitSpeed: 0.01,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/earth.4k.jpg",
+    texture: "/textures/2k_earth_daymap.jpg",
     description: "Earth is the third planet from the Sun and the only astronomical object known to harbor life. About 71% of Earth's surface is water-covered.",
     funFacts: [
       "Earth is the only planet not named after a mythological god or goddess",
@@ -63,7 +63,7 @@ export const planets = [
     averageTemp: -63,
     rotationSpeed: 0.009,
     orbitSpeed: 0.008,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/mars.4k.jpg",
+    texture: "/textures/2k_mars.jpg",
     description: "Mars is the fourth planet from the Sun and is often called the 'Red Planet' due to its reddish appearance in the night sky.",
     funFacts: [
       "Mars has the largest volcano in the solar system, Olympus Mons",
@@ -81,7 +81,7 @@ export const planets = [
     averageTemp: -110,
     rotationSpeed: 0.015,
     orbitSpeed: 0.004,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/jupiter.4k.jpg",
+    texture: "/textures/2k_jupiter.jpg",
     description: "Jupiter is the largest planet in our solar system. It's a gas giant and has a Great Red Spot, which is actually a giant storm.",
     funFacts: [
       "Jupiter has the shortest day of any planet",
@@ -99,7 +99,7 @@ export const planets = [
     averageTemp: -140,
     rotationSpeed: 0.012,
     orbitSpeed: 0.002,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/saturn.4k.jpg",
+    texture: "/textures/2k_saturn.jpg",
     description: "Saturn is the sixth planet from the Sun and is famous for its prominent ring system, which is composed mostly of ice particles, rocky debris, and dust.",
     funFacts: [
       "Saturn's rings are mostly made of water ice",
@@ -117,7 +117,7 @@ export const planets = [
     averageTemp: -195,
     rotationSpeed: 0.007,
     orbitSpeed: 0.001,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/uranus.4k.jpg",
+    texture: "/textures/2k_uranus.jpg",
     description: "Uranus is the seventh planet from the Sun. It's an ice giant and the only planet that spins on its side.",
     funFacts: [
       "Uranus rotates east to west like Venus",
@@ -135,7 +135,7 @@ export const planets = [
     averageTemp: -200,
     rotationSpeed: 0.006,
     orbitSpeed: 0.0006,
-    texture: "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/neptune.4k.jpg",
+    texture: "/textures/2k_neptune.jpg",
     description: "Neptune is the eighth and farthest planet from the Sun. It's an ice giant known for its bright blue color caused by methane in its atmosphere.",
     funFacts: [
       "Neptune has the strongest winds in the solar system",
