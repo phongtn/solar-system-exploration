@@ -15,8 +15,8 @@ export default function Home() {
 
   return (
     <div className="relative h-screen w-screen bg-background overflow-hidden">
-      <div className="absolute top-4 right-4 z-10">
-        <Controls autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+        <Controls autoRotate={autoRotate} onToggleAutoRotate={() => setAutoRotate(!autoRotate)} />
       </div>
       
       <Canvas camera={{ position: [0, 20, 25], fov: 60 }}>
