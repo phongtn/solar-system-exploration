@@ -10,7 +10,7 @@ interface PlanetInfoProps {
 
 export default function PlanetInfo({ planet }: PlanetInfoProps) {
   return (
-    <ScrollArea className="h-full p-4 md:p-6 text-white">
+    <ScrollArea className="h-full p-6 text-white">
       <CardHeader className="p-0 mb-4 md:mb-6">
         <h1 className="text-2xl md:text-3xl font-bold text-white">
           {planet.name}

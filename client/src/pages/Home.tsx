@@ -1,39 +1,44 @@
-import { Canvas } from '@react-three/fiber';
-import { Suspense, useState } from 'react';
-import SolarSystem from '@/components/SolarSystem';
-import PlanetInfo from '@/components/PlanetInfo';
-import Controls from '@/components/Controls';
-import { Card } from '@/components/ui/card';
-import { planets } from '@/lib/planets';
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import SolarSystem from "@/components/SolarSystem";
+import PlanetInfo from "@/components/PlanetInfo";
+import Controls from "@/components/Controls";
+import type { Planet } from "@/lib/types";
+import { planets } from "@/lib/planets";
 
 export default function Home() {
-  const [selectedPlanet, setSelectedPlanet] = useState(planets[0]);
+  const [selectedPlanet, setSelectedPlanet] = useState<Planet>(planets[2]);
   const [autoRotate, setAutoRotate] = useState(true);
 
   return (
-    <div className="w-full h-screen flex flex-col md:flex-row">
-      <div className="flex-grow relative h-[60vh] md:h-full">
-        <Canvas
-          camera={{ position: [0, 20, 25], fov: 60 }}
-          style={{ background: 'black' }}
-        >
-          <Suspense fallback={null}>
-            <SolarSystem 
-              selectedPlanet={selectedPlanet}
-              onSelectPlanet={setSelectedPlanet}
-              autoRotate={autoRotate}
-            />
-          </Suspense>
-        </Canvas>
-        <Controls 
-          autoRotate={autoRotate}
-          onToggleAutoRotate={() => setAutoRotate(!autoRotate)}
-        />
+    <div className="relative h-screen w-screen bg-background overflow-hidden">
+      <div className="absolute top-4 right-4 z-10">
+        <Controls autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
       </div>
+      
+      <SolarSystem
+        selectedPlanet={selectedPlanet}
+        onSelectPlanet={setSelectedPlanet}
+        autoRotate={autoRotate}
+      />
 
-      <Card className="h-[40vh] md:h-full md:w-96 overflow-auto bg-black/80 border-gray-800">
-        <PlanetInfo planet={selectedPlanet} />
-      </Card>
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button 
+            variant="outline" 
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-10"
+          >
+            Planet Info
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <div className="h-[80vh]">
+            <PlanetInfo planet={selectedPlanet} />
+          </div>
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }
