@@ -8,7 +8,7 @@ interface ControlsProps {
 
 export default function Controls({ autoRotate, onToggleAutoRotate }: ControlsProps) {
   return (
-    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 scale-75 md:scale-100">
       <Button
         variant="secondary"
         size="lg"

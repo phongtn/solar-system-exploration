@@ -11,8 +11,8 @@ export default function Home() {
   const [autoRotate, setAutoRotate] = useState(true);
 
   return (
-    <div className="w-full h-screen flex">
-      <div className="flex-grow relative">
+    <div className="w-full h-screen flex flex-col md:flex-row">
+      <div className="flex-grow relative h-[60vh] md:h-full">
         <Canvas
           camera={{ position: [0, 20, 25], fov: 60 }}
           style={{ background: 'black' }}
@@ -31,7 +31,7 @@ export default function Home() {
         />
       </div>
 
-      <Card className="w-96 h-full overflow-auto bg-black/80 border-gray-800">
+      <Card className="h-[40vh] md:h-full md:w-96 overflow-auto bg-black/80 border-gray-800">
         <PlanetInfo planet={selectedPlanet} />
       </Card>
     </div>

@@ -25,10 +25,17 @@ function Planet({
   const texture = useLoader(THREE.TextureLoader, planet.texture);
   const moons = planet.moons || [];
 
+  const isMobile = window.innerWidth < 768;
+  
   useFrame(() => {
     if (autoRotate && meshRef.current && orbitRef.current) {
       meshRef.current.rotation.y += planet.rotationSpeed;
       orbitRef.current.rotation.y += planet.orbitSpeed;
+    }
+    // Adjust camera position for mobile
+    if (isMobile && meshRef.current) {
+      const scale = 1.5;
+      meshRef.current.scale.set(scale, scale, scale);
     }
   });
 
