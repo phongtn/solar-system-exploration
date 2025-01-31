@@ -150,5 +150,23 @@ export const planets = [
       "It has a dark spot similar to Jupiter's Great Red Spot",
       "Neptune takes 165 Earth years to orbit the Sun"
     ]
+  },
+  {
+    name: "Pluto",
+    size: 0.2,
+    distanceFromSun: 72,
+    distanceFromSunKm: "5.9 billion",
+    orbitalPeriod: 90560,
+    diameter: 2377,
+    averageTemp: -230,
+    rotationSpeed: 0.004,
+    orbitSpeed: 0.0004,
+    texture: "/textures/2k_asteroid_1.jpg",
+    description: "Pluto is a dwarf planet in the Kuiper belt. It was once considered the ninth planet from the Sun before being reclassified as a dwarf planet in 2006.",
+    funFacts: [
+      "Pluto is smaller than Earth's moon",
+      "It has five known moons, with Charon being the largest",
+      "A year on Pluto is 248 Earth years"
+    ]
   }
 ];
