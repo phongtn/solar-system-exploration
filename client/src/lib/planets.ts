@@ -118,7 +118,7 @@ export const planets = [
   {
     name: "Uranus",
     size: 1.5,
-    distanceFromSun: 31,
+    distanceFromSun: 46,
     distanceFromSunKm: "2.9 billion",
     orbitalPeriod: 30687,
     diameter: 50724,
@@ -136,7 +136,7 @@ export const planets = [
   {
     name: "Neptune",
     size: 1.4,
-    distanceFromSun: 36,
+    distanceFromSun: 54,
     distanceFromSunKm: "4.5 billion",
     orbitalPeriod: 60190,
     diameter: 49244,
