@@ -153,8 +153,8 @@ export const planets = [
   },
   {
     name: "Pluto",
-    size: 0.2,
-    distanceFromSun: 72,
+    size: 0.3,
+    distanceFromSun: 85,
     distanceFromSunKm: "5.9 billion",
     orbitalPeriod: 90560,
     diameter: 2377,
