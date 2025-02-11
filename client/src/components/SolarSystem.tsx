@@ -23,10 +23,11 @@ function Planet({
   // Add orbit ring
   const orbitGeometry = new THREE.RingGeometry(distance, distance + 0.05, 128);
   const orbitMaterial = new THREE.MeshBasicMaterial({
-    color: 0x444444,
+    color: 0x666666,
     side: THREE.DoubleSide,
     transparent: true,
-    opacity: 0.3
+    opacity: 0.5,
+    wireframe: true
   });
   const meshRef = useRef<THREE.Mesh>(null);
   const orbitRef = useRef<THREE.Group>(null);
