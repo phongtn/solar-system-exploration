@@ -20,6 +20,14 @@ function Planet({
   onSelect,
   autoRotate,
 }: PlanetProps) {
+  // Add orbit ring
+  const orbitGeometry = new THREE.RingGeometry(distance, distance + 0.05, 128);
+  const orbitMaterial = new THREE.MeshBasicMaterial({
+    color: 0x444444,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.3
+  });
   const meshRef = useRef<THREE.Mesh>(null);
   const orbitRef = useRef<THREE.Group>(null);
   const texture = useLoader(THREE.TextureLoader, planet.texture);
@@ -45,6 +53,10 @@ function Planet({
 
   return (
     <group ref={orbitRef}>
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <primitive object={orbitGeometry} />
+        <primitive object={orbitMaterial} />
+      </mesh>
       <mesh
         ref={meshRef}
         position={[distance, 0, 0]}
