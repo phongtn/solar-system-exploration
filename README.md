@@ -4,13 +4,16 @@ This project is a web-based interactive 3D visualization of our solar system. Ex
 
 ## Features
 
-*   **3D Solar System Model:**  A dynamic, interactive 3D model of the solar system built with Three.js.
-*   **Realistic Planet Representations:** Each planet is represented with detailed textures and models.
+*   **3D Solar System Model:** A dynamic, interactive 3D model of the solar system built with Three.js.
+*   **Realistic Planet Representations:** Each planet is represented with detailed textures and models, sourced from real planetary maps.
 *   **Interactive Exploration:** Users can pan, zoom, and rotate the view to explore the solar system from different perspectives.
 *   **Backend API:** A Node.js/Express.js backend provides data and potentially handles user interactions (e.g., user accounts, saved views).
-* **Authentication:** Users can create an account to save their preferences and interact with the app.
+*   **Authentication:** Users can create an account to save their preferences and interact with the app.
 *   **Responsive Design:** The application adapts to various screen sizes, providing a good experience on both desktop and mobile devices.
-* **User-Friendly Interface:** The use of `shadcn/ui` makes for an attractive and easy-to-use interface.
+*   **User-Friendly Interface:** The use of `shadcn/ui` makes for an attractive and easy-to-use interface.
+*   **Planet Information Panel:**  Detailed information about each planet, including distance from the sun, orbital period, temperature, diameter, description, and fun facts.
+*   **Events Calendar:** An overlay calendar to show interesting events in space.
+* **Real Textures**: The planets use real textures from [Solar System Scope](https://www.solarsystemscope.com/textures/) website.
 
 ## Technologies Used
 
@@ -24,10 +27,12 @@ This project is a web-based interactive 3D visualization of our solar system. Ex
 *   **Vite:** A fast build tool for modern web development.
 *   **Tailwind CSS:** A utility-first CSS framework for styling.
 *   **Radix UI:** A headless UI component library.
-* **Shadcn/ui:** A set of ui components built on top of radix ui.
+*   **Shadcn/ui:** A set of UI components built on top of Radix UI.
 *   **React-Query:** Library for fetching, caching, synchronizing and updating server state.
-* **Wouter:** A minimal routing library
-* **Lucide-react:** Used for icons.
+*   **Wouter:** A minimal routing library.
+*   **Lucide-react:** Used for icons.
+*   **@tanstack/react-query:** A library for data fetching and caching in React.
+* **Wouter:** minimal routing library.
 
 **Backend:**
 
@@ -35,16 +40,19 @@ This project is a web-based interactive 3D visualization of our solar system. Ex
 *   **Express.js:** A minimal and flexible Node.js web application framework.
 *   **TypeScript:** Used for type safety on the server-side.
 *   **Drizzle ORM:** A lightweight TypeScript ORM for database interactions.
-* **Express-session:** Used for sessions
-* **Passport:** Used for user authentication.
+*   **Express-session:** Used for sessions.
+*   **Passport:** Used for user authentication.
+*   **Http:** Used to create a server.
 
 **Deployment & Other:**
 
 *   **Fly.io:** The platform for deploying and hosting the application.
 *   **Docker:** Containerization technology for consistent and reproducible deployments.
-* **Zod:** For validation
-* **ESBuild:** Used in the build process
-* **Replit:** Used as a developemtn environment
+*   **Zod:** For validation.
+*   **ESBuild:** Used in the build process.
+*   **Replit:** Used as a development environment.
+*   **tsx:** Used to run the dev server.
+* **nanoid:** Used for hash generation.
 
 ## Getting Started
 
@@ -104,8 +112,10 @@ This project is a web-based interactive 3D visualization of our solar system. Ex
 ### Deploying to Fly.io
 
 1.  **Install Flyctl:** If you don't have it, follow the instruction in the Fly.io website.
-2. **Login:** `flyctl auth login`
+2.  **Login:** `flyctl auth login`
 3.  **Deploy the application:**
     ```bash
     flyctl deploy
     ```
+
+## Project Structure
