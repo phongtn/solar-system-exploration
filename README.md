@@ -8,12 +8,12 @@ This project is a web-based interactive 3D visualization of our solar system. Ex
 *   **Realistic Planet Representations:** Each planet is represented with detailed textures and models, sourced from real planetary maps.
 *   **Interactive Exploration:** Users can pan, zoom, and rotate the view to explore the solar system from different perspectives.
 *   **Backend API:** A Node.js/Express.js backend provides data and potentially handles user interactions (e.g., user accounts, saved views).
-*   **Authentication:** Users can create an account to save their preferences and interact with the app.
 *   **Responsive Design:** The application adapts to various screen sizes, providing a good experience on both desktop and mobile devices.
 *   **User-Friendly Interface:** The use of `shadcn/ui` makes for an attractive and easy-to-use interface.
 *   **Planet Information Panel:**  Detailed information about each planet, including distance from the sun, orbital period, temperature, diameter, description, and fun facts.
 *   **Events Calendar:** An overlay calendar to show interesting events in space.
-* **Real Textures**: The planets use real textures from [Solar System Scope](https://www.solarsystemscope.com/textures/) website.
+*   **Time Control System:** Add ability to simulate planetary movements at different speeds and dates. This will allow users to control the simulation speed and see planetary positions at specific dates.
+*   **Real Textures**: The planets use real textures from [Solar System Scope](https://www.solarsystemscope.com/textures/) website.
 
 ## Technologies Used
 
